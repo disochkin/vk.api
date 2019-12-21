@@ -15,7 +15,7 @@ print("?".join(
 token = ""
 
 
-class vkuser:
+class Vkuser:
     def __init__(self, id="0"):
 #если id не задан создаем экземляр класса vkuser для текущего пользователя
         if int(id) != 0:
@@ -50,7 +50,7 @@ class vkuser:
             {"access_token": token,
              "v": 5.101, "source_uid": self.id, "target_uid": other.id})
         for friend_id in response.json()["response"]:
-            list_mutual_friends.append(vkuser(friend_id))
+            list_mutual_friends.append(Vkuser(friend_id))
         return list_mutual_friends
 
     def __str__(self):
@@ -58,9 +58,9 @@ class vkuser:
         return result
 
 
-user = vkuser()
-user1 = vkuser(6492)
-user2 = vkuser(2745)
+user = Vkuser()
+user1 = Vkuser(6492)
+user2 = Vkuser(2745)
 
 list_mutual_friend = (user1 & user2)
 for friend in list_mutual_friend:
